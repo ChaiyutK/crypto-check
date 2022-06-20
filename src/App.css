@@ -94,3 +94,22 @@ label{
   justify-content: center;
 }
 
+@media screen and (max-width: 500px)
+{
+  .App{
+    font-size: 0.5rem;
+  }
+  .coinlist{
+    width: 320px;
+  }
+  .search{
+    font-size: 1rem;
+  }
+  .coin-name img{
+    width: 1rem;
+    margin-right: 5px;
+  }
+  .navbar select{
+    margin-right: 0px;
+  }
+}
