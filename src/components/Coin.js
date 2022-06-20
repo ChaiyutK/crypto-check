@@ -13,7 +13,7 @@ const Coin = (props) => {
         <p>{data.name}</p>
         </div>
         <div className="coin-price">
-        <p>${dollarUSLocale.format(data.current_price)}</p>
+        <p>{props.currency}{dollarUSLocale.format(data.current_price)}</p>
         </div>
         <div className="coin-change">
         <p className={(data.price_change_percentage_24h > 0 ? "green" : "red")}>{data.price_change_percentage_24h.toFixed(2)}%</p>
