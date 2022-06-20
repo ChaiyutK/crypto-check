@@ -51,7 +51,7 @@ function App() {
 
   const search = (filtername) =>{
       
-      setCoinElement(coinData.filter((val) =>{if(val.name.toLowerCase().includes(filtername.toString().toLowerCase())){
+      setCoinElement(coinData.filter((val) =>{if(val.name.toLowerCase().includes(filtername.target.value.toString().toLowerCase())){
         return val
       }}).map((val,index)=>{
         return (<Coin key={index} data={val} currency={currency} />);
@@ -94,7 +94,7 @@ function App() {
         </div>
     <div className="App">
       <div className="coinlist">
-      <div className="filter-container"><input className='search' type="text" placeholder='Coin Name' onKeyPress={search} onChange={(e) => {search(e.target.value)}} /></div>
+      <div className="filter-container"><input className='search' type="text" placeholder='Coin Name' onKeyPress={(e) => {search(e)}} onChange={(e) => {search(e)}} /></div>
         <div className="coin-header">
           <div className='coin-header-item'><p>Rank</p></div>
           <div className='coin-header-item'><p>Name</p></div>
