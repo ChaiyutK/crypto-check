@@ -27,12 +27,8 @@ function App() {
     if(event.key === "Enter")
     {
       setCoinElement("");
-      setCoinElement(coinData.filter((val)=>{
-        if(val.name.includes(query))
-        {
-          return  (<Coin data={val} />);
-        }
-      }))
+      
+      
       
     }
   }
