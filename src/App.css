@@ -5,8 +5,26 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+.filter-container{
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+label{
+  font-size: 2rem;
+}
 .search{
-  width: 50%;
+  font-size: 2rem;
+  
+}
+.green{
+  color: green;
+}
+.red{
+  color: red;
 }
 .coinlist{
   width: 800px;

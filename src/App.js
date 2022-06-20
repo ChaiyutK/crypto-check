@@ -8,8 +8,8 @@ import Coin from './components/Coin';
 function App() {
 
   const [coinData,setCoinData] = useState([]);
-  const [query,setQuery] = useState("");
   const [coinElement,setCoinElement] = useState("");
+
 
   useEffect(() => {
     axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false")
@@ -21,22 +21,23 @@ function App() {
         );
       }))
     })
+    console.log("tick");
   },[])
 
-  const search = (event) =>{
-    if(event.key === "Enter")
-    {
-      setCoinElement("");
+  const search = (filtername) =>{
       
-      
-      
-    }
+      setCoinElement(coinData.filter((val) =>{if(val.name.toLowerCase().includes(filtername.toString().toLowerCase())){
+        return val
+      }}).map((val,index)=>{
+        return (<Coin key={index} data={val} />);
+      })) 
+    
   }
   
   return (
     <div className="App">
-      <input className='search' type="text" onKeyPress={search} onChange={(e) => {setQuery(e.target.value)}} />
       <div className="coinlist">
+      <div className="filter-container"><label>Name: </label><input className='search' type="text" onKeyPress={search} onChange={(e) => {search(e.target.value)}} /></div>
         <div className="coin-header">
           <div className='coin-header-item'><p>Rank</p></div>
           <div className='coin-header-item'><p>Name</p></div>
